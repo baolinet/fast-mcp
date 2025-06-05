@@ -1,0 +1,29 @@
+# Python 缓存
+__pycache__/
+*.py[cod]
+
+# 环境变量
+#.env
+
+# 虚拟环境
+.venv/
+venv/
+ENV/
+
+# 依赖缓存
+poetry.lock
+Pipfile.lock
+
+# IDE 配置
+.vscode/
+.idea/
+
+# 测试/覆盖率
+htmlcov/
+.coverage
+
+# 日志
+*.log
+
+# Mac 系统文件
+.DS_Store 

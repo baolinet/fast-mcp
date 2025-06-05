@@ -1,0 +1,19 @@
+[project]
+name = "fast-mcp"
+version = "0.1.0"
+description = "基于 FastAPI 和 FastMCP 的智能体平台骨架"
+requires-python = ">=3.12"
+
+[tool.poetry.dependencies]
+python = ">=3.12,<3.13"
+fastapi = "^0.110.0"
+uvicorn = "^0.29.0"
+fastmcp = "*"
+openai = "^1.14.3"
+
+[tool.poetry.dev-dependencies]
+pytest = "^8.0.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

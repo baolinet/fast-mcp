@@ -1,0 +1,56 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# FastAPI + FastMCP 智能体平台项目规则
+
+## 技术栈
+- 主语言：Python 3.12
+- Web 框架：FastAPI
+- 智能体/中间件：FastMCP
+- 依赖管理建议：`pyproject.toml`（推荐使用 [Poetry](mdc:https:/python-poetry.org) 或 [PDM](mdc:https:/pdm.fming.dev)）
+- 推荐使用类型注解和 PEP8 代码风格
+
+## 目录结构（建议）
+```
+fast-mcp/
+├── app/                # FastAPI 应用主目录
+│   ├── main.py         # FastAPI 入口
+│   ├── api/            # 路由与接口
+│   ├── core/           # 配置、启动、依赖注入
+│   ├── mcp/            # FastMCP 相关逻辑
+│   └── ...
+├── tests/              # 测试用例
+├── pyproject.toml      # 依赖与构建配置
+├── README.md           # 项目说明
+└── ...
+```
+
+## 关键约定
+- FastAPI 作为 API 服务主入口，通常在 `app/main.py` 启动。
+- FastMCP 相关业务逻辑建议集中在 `app/mcp/` 目录。
+- 路由建议分模块组织，放于 `app/api/`。
+- 配置与依赖注入建议集中在 `app/core/`。
+- 测试代码统一放在 `tests/` 目录，推荐使用 `pytest`。
+
+## 文件引用示例
+- 入口文件：[app/main.py](mdc:app/main.py)
+- FastMCP 逻辑：[app/mcp/your_module.py](mdc:app/mcp/your_module.py)
+- 路由示例：[app/api/your_router.py](mdc:app/api/your_router.py)
+- 配置示例：[app/core/config.py](mdc:app/core/config.py)
+
+## 开发规范
+- 遵循 PEP8 代码风格，强烈建议使用类型注解。
+- 依赖管理推荐 Poetry 或 PDM，所有依赖应声明于 `pyproject.toml`。
+- 环境变量建议通过 `.env` 文件管理，加载方式可参考 `python-dotenv`。
+- 启动命令示例：`uvicorn app.main:app --reload`
+- 测试命令示例：`pytest tests/`
+
+## 其他建议
+- 详细文档请补充于 `README.md`。
+- 重要配置、密钥等请勿提交至版本库。
+- 推荐集成自动化测试与格式化工具（如 `black`, `isort`, `mypy`）。
+
+---
+如需引用本规则文件，请使用 `[fastapi-fastmcp-stack.mdc](mdc:fastapi-fastmcp-stack.mdc)`。
