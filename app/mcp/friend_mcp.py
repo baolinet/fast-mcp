@@ -1,22 +1,26 @@
 from fastmcp import FastMCP
+from app.mcp.mcp_interceptor import mcp_interceptor
 
 # Create a basic server instance
 friend_mcp = FastMCP(name="我的朋友")
 
 # Add an addition tool
+@mcp_interceptor
 @friend_mcp.tool()
-def add(a: int, b: int) -> int:
+async def add(a: int, b: int) -> int:
     """Add two numbers"""
     return a + b
 
 # Add a dynamic greeting resource
+@mcp_interceptor
 @friend_mcp.resource("greeting://{name}")
-def get_greeting(name: str) -> str:
+async def get_greeting(name: str) -> str:
     """Get a personalized greeting"""
     return f"Hello, {name}!"
 
+@mcp_interceptor
 @friend_mcp.tool()
-def mockey(name: str) -> str:
+async def mockey(name: str) -> str:
     """外号叫猴子的人"""
     return "猴子的本名叫孙悟空"
 
