@@ -21,8 +21,10 @@ async def get_greeting(name: str) -> str:
 @mcp_interceptor
 @friend_mcp.tool()
 async def mockey(name: str) -> str:
+    
+    print("monkey tool called")
     """外号叫猴子的人"""
-    return "猴子的本名叫孙悟空"
+    return "猴子的本名叫孙小圣"
 
 
 # @friend_mcp.tool
