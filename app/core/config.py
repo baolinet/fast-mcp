@@ -7,6 +7,7 @@ class Settings(BaseSettings):
     OPENAI_BASE_URL: str
     OPENAI_MODEL: str
     PORT: int
+    SSE_KEY: str
 
     class Config:
         env_file = ".env"
